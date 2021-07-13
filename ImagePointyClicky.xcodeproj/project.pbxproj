@@ -12,6 +12,13 @@
 		80AE8C76269E135E00257BD0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AE8C75269E135E00257BD0 /* ContentView.swift */; };
 		80AE8C78269E135F00257BD0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80AE8C77269E135F00257BD0 /* Assets.xcassets */; };
 		80AE8C7B269E135F00257BD0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80AE8C7A269E135F00257BD0 /* Preview Assets.xcassets */; };
+		80AE8C85269E203100257BD0 /* NSAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AE8C84269E203100257BD0 /* NSAlert.swift */; };
+		80F47CC6269E219A0032D913 /* PointyClickyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F47CC5269E219A0032D913 /* PointyClickyView.swift */; };
+		80F47CC9269E24060032D913 /* HoverPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F47CC8269E24060032D913 /* HoverPosition.swift */; };
+		80F47CCB269E24170032D913 /* ClickPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F47CCA269E24170032D913 /* ClickPosition.swift */; };
+		80F47CCE269E27E50032D913 /* PointCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F47CCD269E27E50032D913 /* PointCollection.swift */; };
+		80F47CD0269E2B010032D913 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F47CCF269E2B010032D913 /* String.swift */; };
+		80F47CD3269E2B3B0032D913 /* Optional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F47CD2269E2B3B0032D913 /* Optional.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +30,13 @@
 		80AE8C7A269E135F00257BD0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		80AE8C7C269E135F00257BD0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		80AE8C7D269E135F00257BD0 /* ImagePointyClicky.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ImagePointyClicky.entitlements; sourceTree = "<group>"; };
+		80AE8C84269E203100257BD0 /* NSAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAlert.swift; sourceTree = "<group>"; };
+		80F47CC5269E219A0032D913 /* PointyClickyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointyClickyView.swift; sourceTree = "<group>"; };
+		80F47CC8269E24060032D913 /* HoverPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoverPosition.swift; sourceTree = "<group>"; };
+		80F47CCA269E24170032D913 /* ClickPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClickPosition.swift; sourceTree = "<group>"; };
+		80F47CCD269E27E50032D913 /* PointCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointCollection.swift; sourceTree = "<group>"; };
+		80F47CCF269E2B010032D913 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		80F47CD2269E2B3B0032D913 /* Optional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Optional.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +71,11 @@
 			children = (
 				80AE8C71269E135E00257BD0 /* ImagePointyClickyApp.swift */,
 				80AE8C73269E135E00257BD0 /* ImagePointyClickyDocument.swift */,
+				80F47CCD269E27E50032D913 /* PointCollection.swift */,
 				80AE8C75269E135E00257BD0 /* ContentView.swift */,
+				80F47CC5269E219A0032D913 /* PointyClickyView.swift */,
+				80F47CCC269E24BE0032D913 /* Util */,
+				80AE8C86269E203800257BD0 /* Extensions */,
 				80AE8C77269E135F00257BD0 /* Assets.xcassets */,
 				80AE8C7C269E135F00257BD0 /* Info.plist */,
 				80AE8C7D269E135F00257BD0 /* ImagePointyClicky.entitlements */,
@@ -72,6 +90,25 @@
 				80AE8C7A269E135F00257BD0 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		80AE8C86269E203800257BD0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				80F47CCF269E2B010032D913 /* String.swift */,
+				80F47CD2269E2B3B0032D913 /* Optional.swift */,
+				80AE8C84269E203100257BD0 /* NSAlert.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		80F47CCC269E24BE0032D913 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				80F47CC8269E24060032D913 /* HoverPosition.swift */,
+				80F47CCA269E24170032D913 /* ClickPosition.swift */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -144,7 +181,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				80AE8C74269E135E00257BD0 /* ImagePointyClickyDocument.swift in Sources */,
+				80F47CD3269E2B3B0032D913 /* Optional.swift in Sources */,
+				80F47CC9269E24060032D913 /* HoverPosition.swift in Sources */,
 				80AE8C72269E135E00257BD0 /* ImagePointyClickyApp.swift in Sources */,
+				80F47CD0269E2B010032D913 /* String.swift in Sources */,
+				80F47CC6269E219A0032D913 /* PointyClickyView.swift in Sources */,
+				80AE8C85269E203100257BD0 /* NSAlert.swift in Sources */,
+				80F47CCB269E24170032D913 /* ClickPosition.swift in Sources */,
+				80F47CCE269E27E50032D913 /* PointCollection.swift in Sources */,
 				80AE8C76269E135E00257BD0 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
