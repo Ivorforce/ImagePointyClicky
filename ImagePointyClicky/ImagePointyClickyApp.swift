@@ -12,6 +12,6 @@ struct ImagePointyClickyApp: App {
     var body: some Scene {
         DocumentGroup(newDocument: ImagePointyClickyDocument()) { file in
             ContentView(document: file.$document)
-        }
+		}
     }
 }

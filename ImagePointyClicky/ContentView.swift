@@ -11,8 +11,10 @@ struct ContentView: View {
     @Binding var document: ImagePointyClickyDocument
 	@State var image: NSImage?
 	@State var pointSize: CGFloat = 4
+	@State var colorScheme: ColorScheme = .dark
 	@State var color: Color = Color(red: 0.2, green: 0.5, blue: 0.8)
-	
+	@State var showTitles: Bool = false
+
 	func selectImage() {
 		let folderChooserPoint = CGPoint(x: 0, y: 0)
 		let folderChooserSize = CGSize(width: 500, height: 600)
@@ -63,20 +65,33 @@ struct ContentView: View {
 					Slider(value: $pointSize, in: 1...8)
 				}.padding(.horizontal)
 				
+				Toggle("Titles", isOn: $showTitles)
+					.padding(.trailing)
+
+				Picker(selection: $colorScheme, label: Text("Scheme")) {
+					Text("Light").tag(ColorScheme.light)
+					Text("Dark").tag(ColorScheme.dark)
+				}
+
 				ColorPicker("Color", selection: $color)
 			}.padding()
 			
 			ZStack {
-				Rectangle().fill(Color.white)
+				Rectangle().fill(colorScheme == .light ? Color.white : Color.black)
 				
 				if let image = image {
 					Image(nsImage: image)
 						.resizable()
 				}
 				
-				PointyClickyView(pointSize: pow(2, pointSize), color: color, collection: document.collection)
+				PointyClickyView(
+					collection: document.collection,
+					pointSize: pow(2, pointSize),
+					color: color,
+					showTitles: showTitles
+				)
 			}.frame(minWidth: 100, maxWidth: .infinity, minHeight: 100, maxHeight: .infinity)
-		}
+		}.colorScheme(colorScheme).background(colorScheme == .light ? Color(white: 0.8) : Color(white: 0.2))
     }
 }
 

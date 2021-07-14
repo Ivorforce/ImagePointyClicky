@@ -7,14 +7,22 @@
 
 import Foundation
 
-class PointCollection: ObservableObject {
-	@Published var points: [(UUID, CGPoint)] = []
+class ImagePoint: Identifiable, ObservableObject {
+	@Published var id = UUID()
+
+	@Published var position: CGPoint
+	@Published var title: String = "Test"
 	
-	init(points: [(UUID, CGPoint)] = []) {
-		self.points = points
+	init(position: CGPoint, title: String = "") {
+		self.position = position
+		self.title = title
 	}
+}
+
+class PointCollection: ObservableObject {
+	@Published var points: [ImagePoint] = []
 	
-	convenience init(points: [CGPoint]) {
-		self.init(points: points.map { (UUID(), $0) })
+	init(points: [ImagePoint] = []) {
+		self.points = points
 	}
 }

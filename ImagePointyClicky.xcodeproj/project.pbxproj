@@ -19,6 +19,7 @@
 		80F47CCE269E27E50032D913 /* PointCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F47CCD269E27E50032D913 /* PointCollection.swift */; };
 		80F47CD0269E2B010032D913 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F47CCF269E2B010032D913 /* String.swift */; };
 		80F47CD3269E2B3B0032D913 /* Optional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F47CD2269E2B3B0032D913 /* Optional.swift */; };
+		80FD541B269F9C6F00C1EF1B /* PointTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FD541A269F9C6F00C1EF1B /* PointTextView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		80F47CCD269E27E50032D913 /* PointCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointCollection.swift; sourceTree = "<group>"; };
 		80F47CCF269E2B010032D913 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		80F47CD2269E2B3B0032D913 /* Optional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Optional.swift; sourceTree = "<group>"; };
+		80FD541A269F9C6F00C1EF1B /* PointTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointTextView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 				80F47CCD269E27E50032D913 /* PointCollection.swift */,
 				80AE8C75269E135E00257BD0 /* ContentView.swift */,
 				80F47CC5269E219A0032D913 /* PointyClickyView.swift */,
+				80FD541A269F9C6F00C1EF1B /* PointTextView.swift */,
 				80F47CCC269E24BE0032D913 /* Util */,
 				80AE8C86269E203800257BD0 /* Extensions */,
 				80AE8C77269E135F00257BD0 /* Assets.xcassets */,
@@ -186,6 +189,7 @@
 				80AE8C72269E135E00257BD0 /* ImagePointyClickyApp.swift in Sources */,
 				80F47CD0269E2B010032D913 /* String.swift in Sources */,
 				80F47CC6269E219A0032D913 /* PointyClickyView.swift in Sources */,
+				80FD541B269F9C6F00C1EF1B /* PointTextView.swift in Sources */,
 				80AE8C85269E203100257BD0 /* NSAlert.swift in Sources */,
 				80F47CCB269E24170032D913 /* ClickPosition.swift in Sources */,
 				80F47CCE269E27E50032D913 /* PointCollection.swift in Sources */,

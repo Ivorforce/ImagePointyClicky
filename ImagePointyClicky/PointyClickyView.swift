@@ -14,9 +14,11 @@ extension CGPoint {
 }
 
 struct PointyClickyView: View {
+	@ObservedObject var collection: PointCollection
+
 	var pointSize: CGFloat = 5
 	var color: Color = Color.red
-	@ObservedObject var collection: PointCollection
+	var showTitles: Bool = true
 	
     var body: some View {
 		GeometryReader { geo in
@@ -24,24 +26,32 @@ struct PointyClickyView: View {
 				let point = CGPoint(x: point.x / geo.size.width, y: point.y / geo.size.height)
 				
 				if NSEvent.modifierFlags.contains(.command) {
-					guard let (id, _) = collection.points.min(by: {
-						CGPoint.distSQ($0.1, point) < CGPoint.distSQ($1.1, point)
+					guard let point = collection.points.min(by: {
+						CGPoint.distSQ($0.position, point) < CGPoint.distSQ($1.position, point)
 					}) else {
 						return
 					}
 					
-					collection.points.removeAll { $0.0 == id }
+					collection.points.removeAll { $0.id == point.id }
 					
 					return
 				}
 				
-				collection.points.append((UUID(), point))
+				collection.points.append(.init(position: point))
 			}
 			
-			ForEach(collection.points, id: \.0) { (id, point) in
+			ForEach(collection.points, id: \.id) { point in
 				Circle().fill(color)
 					.frame(width: pointSize, height: pointSize)
-					.position(x: geo.size.width * point.x, y: geo.size.height * point.y)
+					.position(x: geo.size.width * point.position.x, y: geo.size.height * point.position.y)
+			}
+
+			if showTitles {
+				ForEach(collection.points, id: \.id) { point in
+					PointTextView(point: point)
+						.position(x: geo.size.width * point.position.x, y: geo.size.height * point.position.y)
+				}
+					.multilineTextAlignment(.center)
 			}
 		}
     }

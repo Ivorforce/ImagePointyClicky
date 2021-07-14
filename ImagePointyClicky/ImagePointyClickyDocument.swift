@@ -15,7 +15,7 @@ extension UTType {
 }
 
 struct ImagePointyClickyDocument: FileDocument {
-	static let regex = try! NSRegularExpression(pattern: #"\d+ \((.+), (.+)\)"#)
+	static let regex = try! NSRegularExpression(pattern: #"\d+ \((.+), (.+)\)(.*)"#)
 
     let collection: PointCollection
 
@@ -36,27 +36,31 @@ struct ImagePointyClickyDocument: FileDocument {
 		let lines = string.split(whereSeparator: \.isNewline)
 			.map({ $0.trimmingCharacters(in: .whitespaces) })
 			.filter({ !$0.isEmpty })
-		let points: [CGPoint] = try lines.map { (string: String) in
+		let points: [ImagePoint] = try lines.map { (string: String) in
 			let match = try Self.regex
 				.firstMatch(in: string, options: .anchored, range: string.fullRange)
 				.unwrap(orThrow: CocoaError(.fileReadCorruptFile))
 			
-			let parts = try (1...2).map {
-				CGFloat(
-					try Float(string[Range(match.range(at: $0), in: string)!])
-						.unwrap(orThrow: CocoaError(.fileReadCorruptFile))
-				)
+			let groups = (1...3).map {
+				string[Range(match.range(at: $0), in: string)!]
 			}
 			
-			return CGPoint(x: parts[0], y: parts[1])
+			let parts = try groups[1...2].map {
+				try CGFloat(Float($0).unwrap(orThrow: CocoaError(.fileReadCorruptFile)))
+			}
+			
+			return ImagePoint(
+				position: CGPoint(x: parts[0], y: parts[1]),
+				title: String(groups[2])
+			)
 		}
 		
 		self.init(collection: PointCollection(points: points))
     }
     
     func fileWrapper(configuration: WriteConfiguration) throws -> FileWrapper {
-		let text = collection.points.enumerated().map { (idx, pair) in
-			return "\(idx) (\(pair.1.x), \(pair.1.y))"
+		let text = collection.points.enumerated().map { (idx, point) in
+			return "\(idx) (\(point.position.x), \(point.position.y)) \(point.title)"
 		}.joined(separator: "\n")
 		
 		let data = text.data(using: .utf8)!
