@@ -51,7 +51,7 @@ struct ImagePointyClickyDocument: FileDocument {
 			
 			return ImagePoint(
 				position: CGPoint(x: parts[0], y: parts[1]),
-				title: String(groups[2])
+				title: String(groups[2]).trimmingCharacters(in: .whitespaces)
 			)
 		}
 		
