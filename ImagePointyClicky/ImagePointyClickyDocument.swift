@@ -45,7 +45,6 @@ struct ImagePointyClickyDocument: FileDocument {
 				string[Range(match.range(at: $0), in: string)!]
 			}
 			
-			print(groups.map(String.init))
 			let parts = try groups[0...1].map {
 				try CGFloat(Float($0).unwrap(orThrow: CocoaError(.fileReadCorruptFile)))
 			}
